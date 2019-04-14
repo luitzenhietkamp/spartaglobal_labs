@@ -10,6 +10,8 @@ namespace _01_hellow_world
     {
         static void Main(string[] args)
         {
+            // Output "Hello, world!" to the console
+            // (redundant comment)
             Console.WriteLine("Hello, world!");
         }
     }
