@@ -1,0 +1,6 @@
+C:\labs\labs\lab_04_dll\bin\Debug\lab_04_dll.dll
+C:\labs\labs\lab_04_dll\bin\Debug\lab_04_dll.pdb
+C:\labs\labs\lab_04_dll\obj\Debug\lab_04_dll.csprojAssemblyReference.cache
+C:\labs\labs\lab_04_dll\obj\Debug\lab_04_dll.csproj.CoreCompileInputs.cache
+C:\labs\labs\lab_04_dll\obj\Debug\lab_04_dll.dll
+C:\labs\labs\lab_04_dll\obj\Debug\lab_04_dll.pdb

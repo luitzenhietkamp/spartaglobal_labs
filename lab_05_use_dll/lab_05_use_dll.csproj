@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ECF3119F-F66D-4EC9-85AC-ABA6CBC2A32C}</ProjectGuid>
+    <ProjectGuid>{0E559166-5097-4E23-8F22-D743DE46CFBC}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_lab_01_hello_world</RootNamespace>
-    <AssemblyName>lab_01_hello_world</AssemblyName>
+    <RootNamespace>lab_05_use_dll</RootNamespace>
+    <AssemblyName>lab_05_use_dll</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lab_04_dll\lab_04_dll.csproj">
+      <Project>{d221f399-0b76-426b-b288-fc65f4e02c3f}</Project>
+      <Name>lab_04_dll</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
