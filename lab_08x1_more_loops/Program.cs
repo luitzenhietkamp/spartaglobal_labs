@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// A slightly larger exercise involving loops
+using System;
 
 namespace lab_08x1_more_loops
 {

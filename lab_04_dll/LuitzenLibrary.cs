@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Small practice with dll programming.
+// The dll file is referenced int the "lab_05_use_dll" (sub)project
 
 namespace lab_04_dll
 {

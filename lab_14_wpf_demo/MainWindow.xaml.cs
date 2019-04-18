@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// A small program that introduces WPF
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace lab_14_wpf_demo
 {
@@ -26,6 +14,7 @@ namespace lab_14_wpf_demo
             Initialise();
         }
 
+        // Create own Initialisation method
         void Initialise()
         {
             Button01.FontSize = 40;
@@ -33,6 +22,9 @@ namespace lab_14_wpf_demo
 
         int counter = 0;
 
+        // Every time Button01 is clicked the counter is increased and
+        // its value is displayed in Label01 and ListBox01
+        // The font size of the label and button are also increased for every click
         private void Button01_Click(object sender, RoutedEventArgs e)
         {
             ++counter;
@@ -42,6 +34,7 @@ namespace lab_14_wpf_demo
             Button01.FontSize++;
         }
 
+        // Actions for Reset button
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
             counter = 0;

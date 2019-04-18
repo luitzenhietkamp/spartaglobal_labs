@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// In this program a small exercise on loops was implemented
+using System;
 
 namespace lab_08_loops
 {
@@ -10,7 +7,7 @@ namespace lab_08_loops
     {
         static void Main(string[] args)
         {
-            // FOR
+            // Print a number and it's square for 0..9
             for(int i = 0; i < 10; ++i)
             {
                 Console.WriteLine($"Your number is {i}");

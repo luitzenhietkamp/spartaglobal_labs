@@ -1,8 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// C# implementation of FizzBuzz
+// Prints 100 numbers. If the number is divisible by 3,
+// the program outputs "Fizz" to the console instead of
+// the number. If the number is divisible by 5, the
+// console output is "Buzz". If the number is divisible
+// by both 3 and 5, i.e. divisible by 15, the output
+// will be "FizzBuzz".
+//
+// There are two (slightly) different solutions in the
+// file. It's possible to switch between the solutions
+// by unccommenting the commented code and commenting
+// the current solution out.
+
+using System;
 
 namespace lab_02_fizz_buzz
 {
