@@ -17,11 +17,13 @@ namespace _01_hello_world
             else
             {
                 Console.WriteLine("Printing out arguments array");
-                foreach (string item in args)
+                foreach (var word in args)
                 {
-                    Console.WriteLine("Your item is - " + item);
+                    Console.WriteLine("Your item is - " + word.ToUpper());
                 }
             }
         }
     }
 }
+
+

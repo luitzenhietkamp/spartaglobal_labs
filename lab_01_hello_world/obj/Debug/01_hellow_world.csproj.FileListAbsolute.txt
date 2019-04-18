@@ -1,7 +1,0 @@
-C:\labs\labs\01_hellow_world\bin\Debug\01_hellow_world.exe.config
-C:\labs\labs\01_hellow_world\bin\Debug\01_hellow_world.exe
-C:\labs\labs\01_hellow_world\bin\Debug\01_hellow_world.pdb
-C:\labs\labs\01_hellow_world\obj\Debug\01_hellow_world.csprojAssemblyReference.cache
-C:\labs\labs\01_hellow_world\obj\Debug\01_hellow_world.csproj.CoreCompileInputs.cache
-C:\labs\labs\01_hellow_world\obj\Debug\01_hellow_world.exe
-C:\labs\labs\01_hellow_world\obj\Debug\01_hellow_world.pdb

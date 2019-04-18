@@ -1,7 +1,0 @@
-C:\labs\labs\lab_08x1_more_loops\obj\Debug\lab_08x1_more_loops.csprojAssemblyReference.cache
-C:\labs\labs\lab_08x1_more_loops\obj\Debug\lab_08x1_more_loops.csproj.CoreCompileInputs.cache
-C:\labs\labs\lab_08x1_more_loops\bin\Debug\lab_08x1_more_loops.exe.config
-C:\labs\labs\lab_08x1_more_loops\bin\Debug\lab_08x1_more_loops.exe
-C:\labs\labs\lab_08x1_more_loops\bin\Debug\lab_08x1_more_loops.pdb
-C:\labs\labs\lab_08x1_more_loops\obj\Debug\lab_08x1_more_loops.exe
-C:\labs\labs\lab_08x1_more_loops\obj\Debug\lab_08x1_more_loops.pdb

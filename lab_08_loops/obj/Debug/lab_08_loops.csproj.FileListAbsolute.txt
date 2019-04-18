@@ -1,7 +1,0 @@
-C:\labs\labs\lab_08_loops\bin\Debug\lab_08_loops.exe.config
-C:\labs\labs\lab_08_loops\bin\Debug\lab_08_loops.exe
-C:\labs\labs\lab_08_loops\bin\Debug\lab_08_loops.pdb
-C:\labs\labs\lab_08_loops\obj\Debug\lab_08_loops.csprojAssemblyReference.cache
-C:\labs\labs\lab_08_loops\obj\Debug\lab_08_loops.csproj.CoreCompileInputs.cache
-C:\labs\labs\lab_08_loops\obj\Debug\lab_08_loops.exe
-C:\labs\labs\lab_08_loops\obj\Debug\lab_08_loops.pdb

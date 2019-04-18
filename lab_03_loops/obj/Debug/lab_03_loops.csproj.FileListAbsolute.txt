@@ -1,7 +1,0 @@
-C:\labs\labs\lab_03_loops\obj\Debug\lab_03_loops.csprojAssemblyReference.cache
-C:\labs\labs\lab_03_loops\obj\Debug\lab_03_loops.csproj.CoreCompileInputs.cache
-C:\labs\labs\lab_03_loops\bin\Debug\lab_03_loops.exe.config
-C:\labs\labs\lab_03_loops\bin\Debug\lab_03_loops.exe
-C:\labs\labs\lab_03_loops\bin\Debug\lab_03_loops.pdb
-C:\labs\labs\lab_03_loops\obj\Debug\lab_03_loops.exe
-C:\labs\labs\lab_03_loops\obj\Debug\lab_03_loops.pdb

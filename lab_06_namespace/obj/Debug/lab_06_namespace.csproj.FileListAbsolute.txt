@@ -1,7 +1,0 @@
-C:\labs\labs\lab_06_namespace\obj\Debug\lab_06_namespace.csprojAssemblyReference.cache
-C:\labs\labs\lab_06_namespace\obj\Debug\lab_06_namespace.csproj.CoreCompileInputs.cache
-C:\labs\labs\lab_06_namespace\bin\Debug\lab_06_namespace.exe.config
-C:\labs\labs\lab_06_namespace\bin\Debug\lab_06_namespace.exe
-C:\labs\labs\lab_06_namespace\bin\Debug\lab_06_namespace.pdb
-C:\labs\labs\lab_06_namespace\obj\Debug\lab_06_namespace.exe
-C:\labs\labs\lab_06_namespace\obj\Debug\lab_06_namespace.pdb
