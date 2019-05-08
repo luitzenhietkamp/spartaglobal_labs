@@ -14,6 +14,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\hw_02_Apr_25\hw_02_Apr_25.csproj" />
+    <ProjectReference Include="..\hw_03_Classes\hw_03_Classes.csproj" />
+    <ProjectReference Include="..\hw_05_polymorphism\hw_05_polymorphism.csproj" />
     <ProjectReference Include="..\lab_42_testme\lab_42_testme.csproj" />
   </ItemGroup>
 

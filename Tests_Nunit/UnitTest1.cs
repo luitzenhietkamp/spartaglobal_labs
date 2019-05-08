@@ -2,6 +2,8 @@ using NUnit.Framework;
 
 using lab_42_testme;
 using hw_02_Apr_25;
+using hw_03_Classes;
+using hw_05_polymorphism;
 
 namespace Tests
 {
@@ -42,6 +44,10 @@ namespace Tests
             Assert.AreEqual(expected, actual);
         }
 
+        // hw_02_Apr_25() adds 5 numbers to a list
+        // multiplies each entry by 2
+        // adds 10 to each number (+50 in total)
+        // adds up all numbers
         [TestCase(1, 2, 3, 4, 5, 80)]
         [TestCase(1, 1, 1, 1, 1, 60)]
         [TestCase(13, 14, 15, 16, 17, 200)]
@@ -54,6 +60,43 @@ namespace Tests
 
             // assert
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestCase(3, 40, 4, 45)]
+        public void hw_03_classes(int Age, int Height, int expectedAge, int expectedHeight)
+        {
+            // arrange
+            var dog = new Dog(Age, Height);
+
+            // act
+            dog.Grow();
+
+            // assert
+            Assert.AreEqual(expectedAge, dog.Age);
+            Assert.AreEqual(expectedHeight, dog.Height);
+        }
+
+        [TestCase("Parent", "I am a parent.")]
+        [TestCase("Child", "I am a child.")]
+        public void hw_05_polymorphism(string option, string expected)
+        {
+            Parent person;
+
+            // arrange
+            if (option == "Parent")
+            {
+                person = new Parent();
+            }
+            else
+            {
+                person = new Child();
+            }
+
+            // act
+            var reply = person.AsString();
+
+            // assert
+            Assert.AreEqual(reply, expected);
         }
     }
 }
