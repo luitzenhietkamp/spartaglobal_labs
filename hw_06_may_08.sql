@@ -29,7 +29,7 @@ select Country, count(1) as 'Number of suppliers'
 	from Suppliers group by Country
 
 /* 6. having ??? */
-/* Create a list with cities with at least 1 customer,
+/* Create a list of cities with at least 1 customer,
    sorted by number of customers per city */
 select City as 'Cities with multiple customers',
 	count(1) 'Number of customers'
