@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{099FC02E-BA5E-4D78-88B7-85401170ABEE}</ProjectGuid>
+    <ProjectGuid>{E569F59A-B267-47B5-ABA2-F8A2A7DBF103}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>hw_104_WPF_Northwind_Entity</RootNamespace>
-    <AssemblyName>hw_104_WPF_Northwind_Entity</AssemblyName>
+    <RootNamespace>hw_104_WPF_Northwind_Entity_v02</RootNamespace>
+    <AssemblyName>hw_104_WPF_Northwind_Entity_v02</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -64,16 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Alphabetical_list_of_products.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Categories.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Category_Sales_for_1997.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Current_Product_List.cs">
       <DependentUpon>NorthwindModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CustomerDemographics.cs">
@@ -82,28 +73,7 @@
     <Compile Include="Customers.cs">
       <DependentUpon>NorthwindModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Customer_and_Suppliers_by_City.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CustOrderHist_Result.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CustOrdersDetail_Result.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CustOrdersOrders_Result.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Employees.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Employee_Sales_by_Country_Result.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Invoices.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MostRecentOrdersYTD.cs">
       <DependentUpon>NorthwindModel.tt</DependentUpon>
     </Compile>
     <Compile Include="NorthwindModel.cs">
@@ -114,60 +84,22 @@
     <Compile Include="Orders.cs">
       <DependentUpon>NorthwindModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Orders_Qry.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Order_Details.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Order_Details_Extended.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Order_Subtotals.cs">
       <DependentUpon>NorthwindModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Products.cs">
       <DependentUpon>NorthwindModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Products_Above_Average_Price.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Products_by_Category.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Product_Sales_for_1997.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Region.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SalesByCategory_Result.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Sales_by_Category.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Sales_by_Year_Result.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Sales_Totals_by_Amount.cs">
       <DependentUpon>NorthwindModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Shippers.cs">
       <DependentUpon>NorthwindModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Summary_of_Sales_by_Quarter.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Summary_of_Sales_by_Year.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Suppliers.cs">
       <DependentUpon>NorthwindModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Ten_Most_Expensive_Products_Result.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="TableView\TableView.cs" />
     <Compile Include="Territories.cs">
       <DependentUpon>NorthwindModel.tt</DependentUpon>
     </Compile>
@@ -243,5 +175,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
