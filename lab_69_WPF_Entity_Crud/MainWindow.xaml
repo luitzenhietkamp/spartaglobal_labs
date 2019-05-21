@@ -1,0 +1,83 @@
+﻿<Window x:Class="lab_69_WPF_Entity_Crud.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab_69_WPF_Entity_Crud"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="auto" Width="auto">
+    <Grid x:Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <TextBlock x:Name="Block1"></TextBlock>
+            <TextBox x:Name="Box1"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="1">
+            <TextBlock x:Name="Block2"></TextBlock>
+            <TextBox x:Name="Box2"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="3" Grid.Row="1">
+            <TextBlock x:Name="Block3"></TextBlock>
+            <TextBox x:Name="Box3"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="4" Grid.Row="1">
+            <TextBlock x:Name="Block4"></TextBlock>
+            <TextBox x:Name="Box4"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <TextBlock x:Name="Block5"></TextBlock>
+            <TextBox x:Name="Box5"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="2">
+            <TextBlock x:Name="Block6"></TextBlock>
+            <TextBox x:Name="Box6"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="3" Grid.Row="2">
+            <TextBlock x:Name="Block7"></TextBlock>
+            <TextBox x:Name="Box7"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="4" Grid.Row="2">
+            <TextBlock x:Name="Block8"></TextBlock>
+            <TextBox x:Name="Box8"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="3">
+            <TextBlock x:Name="Block9"></TextBlock>
+            <TextBox x:Name="Box9"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="3">
+            <TextBlock x:Name="Block10"></TextBlock>
+            <TextBox x:Name="Box10"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="3" Grid.Row="3">
+            <TextBlock x:Name="Block11"></TextBlock>
+            <TextBox x:Name="Box11"></TextBox>
+        </StackPanel>
+
+        <ListBox x:Name="ListBox01" Background="#cde6ea" Grid.Row="4" Grid.Column="0" SelectionChanged="ListBox01_SelectionChanged"/>
+        <ListBox x:Name="ListBox02" Background="#cde6ea" Grid.Row="4" Grid.Column="1" SelectionChanged="ListBox02_SelectionChanged"/>
+        <ListBox x:Name="ListBox03" Background="#cde6ea" Grid.Row="4" Grid.Column="2" SelectionChanged="ListBox03_SelectionChanged"/>
+        <ListBox x:Name="ListBox04" Background="#cde6ea" Grid.Row="4" Grid.Column="3" SelectionChanged="ListBox04_SelectionChanged"/>
+        <ListBox x:Name="ListBox05" Background="#cde6ea" Grid.Row="4" Grid.Column="4" SelectionChanged="ListBox05_SelectionChanged"/>
+        <Button x:Name="ListCustomersButton" Grid.Row="0" Grid.Column="1" Background="#7bb8ef" Content="Customers" Click="ListCustomersButton_Click" />
+        <Button x:Name="ListProductsButton" Grid.Row="0" Grid.Column="2" Background="#7bb8ef" Content="Products" Click="ListProductsButton_Click" />
+        <Button x:Name="ListSuppliersButton" Grid.Row="0" Grid.Column="3" Background="#7bb8ef" Content="Suppliers" Click="ListSuppliersButton_Click" />
+        <Button x:Name="ListEmployeesButton" Grid.Row="0" Grid.Column="4" Background="#7bb8ef" Content="Employees" Click="ListEmployeesButton_Click" />
+        <Button x:Name="AddButton" Grid.Row="0" Grid.Column="0" Background="#7bb8ef" Content="Add" Click="AddButton_Click" />
+        <Button x:Name="EditButton" Grid.Row="1" Grid.Column="0" Background="#7bb8ef" Content="Edit" Click="EditButton_Click" />
+        <Button x:Name="DeleteButton" Grid.Row="2" Grid.Column="0" Background="#7bb8ef" Content="Delete" Click="DeleteButton_Click" />
+        <Button x:Name="ClearButton" Grid.Row="3" Grid.Column="0" Background="#7bb8ef" Content="Clear" Click="ClearButton_Click" />
+    </Grid>
+</Window>

@@ -87,7 +87,7 @@ namespace hw_104_WPF_Northwind_Entity_v02
 
         public CategoriesView(Grid viewArea, Stack<TableView> viewStack) : base(viewArea, viewStack)
         {
-
+            AddBackButton();
         }
 
         public override void DataItemClicked(object sender, EventArgs e)
@@ -122,7 +122,7 @@ namespace hw_104_WPF_Northwind_Entity_v02
 
         public CustomersView(Grid viewArea, Stack<TableView> viewStack) : base(viewArea, viewStack)
         {
-
+            AddBackButton();
         }
 
         public override void DataItemClicked(object sender, EventArgs e)
@@ -157,6 +157,7 @@ namespace hw_104_WPF_Northwind_Entity_v02
 
         public EmployeesView(Grid viewArea, Stack<TableView> viewStack) : base(viewArea, viewStack)
         {
+            AddBackButton();
         }
 
         public override void DataItemClicked(object sender, EventArgs e)
@@ -191,7 +192,7 @@ namespace hw_104_WPF_Northwind_Entity_v02
 
         public Order_DetailsView(Grid viewArea, Stack<TableView> viewStack) : base(viewArea, viewStack)
         {
-
+            AddBackButton();
         }
 
         public override void DataItemClicked(object sender, EventArgs e)
@@ -226,7 +227,7 @@ namespace hw_104_WPF_Northwind_Entity_v02
 
         public OrdersView(Grid viewArea, Stack<TableView> viewStack) : base(viewArea, viewStack)
         {
-
+            AddBackButton();
         }
 
         public override void DataItemClicked(object sender, EventArgs e)
@@ -261,7 +262,7 @@ namespace hw_104_WPF_Northwind_Entity_v02
 
         public ProductsView(Grid viewArea, Stack<TableView> viewStack) : base(viewArea, viewStack)
         {
-
+            AddBackButton();
         }
 
         public override void DataItemClicked(object sender, EventArgs e)
@@ -296,7 +297,7 @@ namespace hw_104_WPF_Northwind_Entity_v02
 
         public RegionView(Grid viewArea, Stack<TableView> viewStack) : base(viewArea, viewStack)
         {
-
+            AddBackButton();
         }
 
         public override void DataItemClicked(object sender, EventArgs e)
@@ -331,7 +332,7 @@ namespace hw_104_WPF_Northwind_Entity_v02
 
         public ShippersView(Grid viewArea, Stack<TableView> viewStack) : base(viewArea, viewStack)
         {
-
+            AddBackButton();
         }
 
         public override void DataItemClicked(object sender, EventArgs e)
@@ -366,7 +367,7 @@ namespace hw_104_WPF_Northwind_Entity_v02
 
         public SuppliersView(Grid viewArea, Stack<TableView> viewStack) : base(viewArea, viewStack)
         {
-
+            AddBackButton();
         }
 
         public override void DataItemClicked(object sender, EventArgs e)
@@ -401,7 +402,7 @@ namespace hw_104_WPF_Northwind_Entity_v02
 
         public TerritoriesView(Grid viewArea, Stack<TableView> viewStack) : base(viewArea, viewStack)
         {
-
+            AddBackButton();
         }
 
         public override void DataItemClicked(object sender, EventArgs e)
@@ -435,4 +436,5 @@ namespace hw_104_WPF_Northwind_Entity_v02
         public string TableName { get; set; }
     }
     #endregion
+
 }

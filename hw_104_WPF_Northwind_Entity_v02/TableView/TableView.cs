@@ -18,7 +18,7 @@ namespace hw_104_WPF_Northwind_Entity_v02
         protected DataGrid DGTableView;
 
         // StackPanel for the buttons
-        protected StackPanel _stackPanel;
+        protected StackPanel _buttonsPanel;
 
         // Buttons belonging to the current view
         protected List<Button> _buttons;
@@ -47,15 +47,14 @@ namespace hw_104_WPF_Northwind_Entity_v02
         public void SetButtonView()
         {
             // Create stackpanel
-            _stackPanel = new StackPanel();
-            ViewArea.Children.Add(_stackPanel);
-            Grid.SetColumn(_stackPanel, 1);
+            _buttonsPanel = new StackPanel();
+            ViewArea.Children.Add(_buttonsPanel);
+            Grid.SetColumn(_buttonsPanel, 1);
 
             // Initialize button list
             _buttons = new List<Button>();
 
             AddInspectButton();
-            AddBackButton();
         }
         #endregion
 
@@ -89,6 +88,7 @@ namespace hw_104_WPF_Northwind_Entity_v02
 
             if (buttonClickedAsArray[1] == "Back")
             {
+                Deactivate();
                 _viewStack.Pop();
                 _viewStack.Peek().Activate();
             }
@@ -100,50 +100,54 @@ namespace hw_104_WPF_Northwind_Entity_v02
         /// </summary>
         /// <param name="tableName">The associated table</param>
         /// <param name="id">The associated ID</param>
-        public void Inspect(string tableName, string id)
+        public virtual void Inspect(string tableName, string id)
         {
             this.Deactivate();
             switch (tableName)
             {
                 case "Categories":
-                    _viewStack.Push(new CategoriesView(ViewArea, _viewStack));
+                    _viewStack.Push(new GenericTableView<Categories>(ViewArea, _viewStack));
                     break;
                 case "Customers":
-                    _viewStack.Push(new CustomersView(ViewArea, _viewStack));
+                    _viewStack.Push(new GenericTableView<Customers>(ViewArea, _viewStack));
                     break;
                 case "Employees":
-                    _viewStack.Push(new EmployeesView(ViewArea, _viewStack));
+                    _viewStack.Push(new GenericTableView<Employees>(ViewArea, _viewStack));
                     break;
                 case "Order_Details":
-                    _viewStack.Push(new Order_DetailsView(ViewArea, _viewStack));
+                    _viewStack.Push(new GenericTableView<Order_Details>(ViewArea, _viewStack));
                     break;
                 case "Orders":
-                    _viewStack.Push(new OrdersView(ViewArea, _viewStack));
+                    _viewStack.Push(new GenericTableView<Orders>(ViewArea, _viewStack));
                     break;
                 case "Products":
-                    _viewStack.Push(new ProductsView(ViewArea, _viewStack));
+                    _viewStack.Push(new GenericTableView<Products>(ViewArea, _viewStack));
                     break;
                 case "Region":
-                    _viewStack.Push(new RegionView(ViewArea, _viewStack));
+                    _viewStack.Push(new GenericTableView<Region>(ViewArea, _viewStack));
                     break;
                 case "Shippers":
-                    _viewStack.Push(new ShippersView(ViewArea, _viewStack));
+                    _viewStack.Push(new GenericTableView<Shippers>(ViewArea, _viewStack));
                     break;
                 case "Suppliers":
-                    _viewStack.Push(new SuppliersView(ViewArea, _viewStack));
+                    _viewStack.Push(new GenericTableView<Suppliers>(ViewArea, _viewStack));
                     break;
                 case "Territories":
-                    _viewStack.Push(new TerritoriesView(ViewArea, _viewStack));
+                    _viewStack.Push(new GenericTableView<Territories>(ViewArea, _viewStack));
                     break;
                 default:
                     return;
             }
+
+            // Add a back button allowing the user to return to the previous view
+            if(_viewStack.Count == 0)
+                AddBackButton();
         }
 
         public void Activate()
         {
             ViewArea.Children.Add(DGTableView);
-            ViewArea.Children.Add(_stackPanel);
+            ViewArea.Children.Add(_buttonsPanel);
         }
 
         public void Deactivate()
@@ -164,7 +168,7 @@ namespace hw_104_WPF_Northwind_Entity_v02
             button.Click += NavButtonClicked;
 
             // Add button
-            _stackPanel.Children.Add(button);
+            _buttonsPanel.Children.Add(button);
             _buttons.Add(button);
         }
 
@@ -180,7 +184,7 @@ namespace hw_104_WPF_Northwind_Entity_v02
             button.Click += NavButtonClicked;
 
             // Add button
-            _stackPanel.Children.Add(button);
+            _buttonsPanel.Children.Add(button);
             _buttons.Add(button);
         }
 

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E569F59A-B267-47B5-ABA2-F8A2A7DBF103}</ProjectGuid>
+    <ProjectGuid>{1208034A-A3C3-4B31-8348-76D0A1423C19}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>hw_104_WPF_Northwind_Entity_v02</RootNamespace>
-    <AssemblyName>hw_104_WPF_Northwind_Entity_v02</AssemblyName>
+    <RootNamespace>lab_69_WPF_Entity_Crud</RootNamespace>
+    <AssemblyName>lab_69_WPF_Entity_Crud</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -99,8 +99,6 @@
     <Compile Include="Suppliers.cs">
       <DependentUpon>NorthwindModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TableView\GenericTableView.cs" />
-    <Compile Include="TableView\TableView.cs" />
     <Compile Include="Territories.cs">
       <DependentUpon>NorthwindModel.tt</DependentUpon>
     </Compile>
@@ -176,6 +174,5 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
