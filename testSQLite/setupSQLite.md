@@ -62,5 +62,16 @@ Remove-Item testdb
 
 ### Restore database
 ```
-???
+cmd
+sqlite3 testdb < testdb.sql
+exit
+```
+
+### SQLite With Northwind
+
+Download .sql script specifically for SQLite for Northwind
+
+Import with
+```
+sqlite3 Northwind.db < InstallNorthwind.sql
 ```

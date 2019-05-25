@@ -19,7 +19,7 @@ namespace hw_104_WPF_Northwind_Entity_v02
         {
             if (DGTableView.CurrentCell == null)
                 return;
-            var currentCell = DGTableView.CurrentCell;
+            var currentCell = DGTableView.CurrentCell.Column.DisplayIndex;
             
             _buttons.Find(b => b.Name == "inspect").Content = $"{currentCell}";
         }

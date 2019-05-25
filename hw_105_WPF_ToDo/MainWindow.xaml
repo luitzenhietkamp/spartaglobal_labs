@@ -1,0 +1,68 @@
+﻿<Window x:Class="hw_105_WPF_ToDo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:hw_105_WPF_ToDo"
+        mc:Ignorable="d"
+        Title="Sprintaliser" Height="450" Width="800">
+    <Window.Resources>
+        <SolidColorBrush x:Key="GridRowColor" Color="LightGray" Opacity=".3" />
+    </Window.Resources>
+    <Border Padding="10">
+        <Grid x:Name="MainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <ComboBox x:Name="UserDropdown" SelectionChanged="UserSelected" ItemsSource="{Binding User}" DisplayMemberPath="Username" Width="150"  />
+
+                <!-- Save -->
+                <Button Content="Save" Padding="12 0 12 0" Click="SaveClicked" />
+            </StackPanel>
+
+            <TabControl HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" >
+                <TabItem Header="Tasks">
+                    <DataGrid x:Name="TaskGridView" Background="#FFE5E5E5" HorizontalGridLinesBrush="{StaticResource GridRowColor}" VerticalGridLinesBrush="{StaticResource GridRowColor}" ItemsSource="{Binding task}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Task Description" Binding="{Binding Path=TaskDescription}" />
+                            <!--<DataGridComboBoxColumn Header="Category" x:Name="CategoryColumn"/>-->
+                            <DataGridTextColumn Header="CategoryID" Binding="{Binding Path=CategoryID}" />
+                            <DataGridTextColumn Header="Category Name" Binding="{Binding Path=Category.CategoryName}" IsReadOnly="True" />
+                            <DataGridCheckBoxColumn Header="Done" Binding="{Binding Path=Done}">
+                                <DataGridCheckBoxColumn.CellStyle>
+                                    <Style>
+                                        <EventSetter Event="CheckBox.Checked" Handler="DoneToggled"/>
+                                        <EventSetter Event="CheckBox.Unchecked" Handler="DoneToggled"/>
+                                    </Style>
+                                </DataGridCheckBoxColumn.CellStyle>
+                            </DataGridCheckBoxColumn>
+                            <DataGridTextColumn Header="Date Created" Binding="{Binding Path=DateStarted}" />
+                            <DataGridTextColumn Header="Date Completed" Binding="{Binding Path=DateCompleted}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Users">
+                    <DataGrid x:Name="DGUsers" Background="#FFE5E5E5" HorizontalGridLinesBrush="{StaticResource GridRowColor}" VerticalGridLinesBrush="{StaticResource GridRowColor}" ItemsSource="{Binding User}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="User" Binding="{Binding Path=Username}" />
+                            <DataGridTextColumn Header="Tasks" Binding="{Binding Path=tasks.Count}" IsReadOnly="True" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Categories">
+                    <DataGrid x:Name="DGCategories" Background="#FFE5E5E5"  HorizontalGridLinesBrush="{StaticResource GridRowColor}" VerticalGridLinesBrush="{StaticResource GridRowColor}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="User" Binding="{Binding Path=CategoryName}" />
+                            <DataGridTextColumn Header="Tasks" Binding="{Binding Path=tasks.Count}" IsReadOnly="True" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    
+                </TabItem>
+
+            </TabControl>
+        </Grid>
+    </Border>
+</Window>
