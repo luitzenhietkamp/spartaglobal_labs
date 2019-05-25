@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,6 @@ namespace try_02_SpartaPaint
     {
         BitMap _bitmap;
         int _pixelSize;
-        int _deltaValue;
 
         public MainWindow()
         {
@@ -33,7 +33,6 @@ namespace try_02_SpartaPaint
 
             // Custom initialization
             _pixelSize = 1;
-            DrawBitmap();
         }
 
         /// <summary>
@@ -42,10 +41,7 @@ namespace try_02_SpartaPaint
         /// <param name="filePath">Path of the bitmap file</param>
         public void LoadBitmap(string filePath)
         {
-            if (!File.Exists(filePath))
-            {
-                throw new Exception("File not found");
-            }
+            if (!File.Exists(filePath)) throw new Exception("File not found");
 
             var bf = new BitmapFileHeader();
             var bi = new BitmapInfoHeader();
@@ -112,10 +108,12 @@ namespace try_02_SpartaPaint
                 }
             }
 
-            _bitmap = new BitMap();
-            _bitmap.bi = bi;
-            _bitmap.bf = bf;
-            _bitmap.pixelmap = pixelmap;
+            _bitmap = new BitMap
+            {
+                bi = bi,
+                bf = bf,
+                pixelmap = pixelmap
+            };
 
         }
 
@@ -177,6 +175,8 @@ namespace try_02_SpartaPaint
             }
         }
 
+        #region Event handlers
+
         /// <summary>
         /// Adjust the zoom when the left control key is held and the mousewheel is moved
         /// </summary>
@@ -184,11 +184,6 @@ namespace try_02_SpartaPaint
         /// <param name="e"></param>
         private void ZoomHandler(object sender, MouseWheelEventArgs e)
         {
-            // ToDO: remove the following 2 lines.
-            // ToDo: remove the corresponding TextBlock from the interface.
-            _deltaValue = e.Delta;
-            DeltaDisplay.Text = $"Delta value: {_deltaValue}";
-
             // Only scroll if left control is held
             if (!Keyboard.IsKeyDown(Key.LeftCtrl)) return;
 
@@ -204,14 +199,71 @@ namespace try_02_SpartaPaint
             DrawBitmap();
         }
 
-        private void btnOpenFiles_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Event handler that is called when the user tries to close the window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ApplicationClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            // Ask for confirmation
+            MessageBoxResult result = MessageBox.Show(
+                "Are you sure you want to close the application?",
+                "SpartaPaint",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning);
+
+            // If user does not want to close the application, cancel closing
+            if (result == MessageBoxResult.No) e.Cancel = true;
+        }
+
+        #endregion
+
+        #region Commands
+
+        private void OpenCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void OpenCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            // Open file dialog window
             OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            // Restrict files that can be opened to bitmaps
+            openFileDialog.Filter = "Bitmap files (*.bmp)|*.bmp";
+
+            // Don't do anything when the user cancels opening a file
             if (openFileDialog.ShowDialog() == true)
             {
-                LoadBitmap(openFileDialog.FileName);
-                DrawBitmap();
+                try
+                {
+                    LoadBitmap(openFileDialog.FileName);
+                    DrawBitmap();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, $"Could not load file",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
+        }
+        #endregion
+
+        private void CloseApp(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void CloseCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
