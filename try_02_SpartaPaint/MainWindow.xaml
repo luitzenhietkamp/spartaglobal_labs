@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:try_02_SpartaPaint"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="SpartaPaint" Height="450" Width="800"
         MouseWheel="ZoomHandler">
     <DockPanel x:Name="root">
-        <StackPanel x:Name="Taskbar" DockPanel.Dock="Top" Orientation="Horizontal" Height="20">
+        <WrapPanel x:Name="Taskbar" DockPanel.Dock="Top" Orientation="Horizontal" Height="20">
+            <Button Name="btnOpenFile" Click="btnOpenFiles_Click" Content="Open file" />
             <TextBlock x:Name="DeltaDisplay" />
-        </StackPanel>
-        <Canvas x:Name="ImageCanvas" />
+        </WrapPanel>
+        <ListBox x:Name="lbFiles" DockPanel.Dock="Left" />
+        <Canvas x:Name="ImageCanvas" Background="#FFE5E5E5" />
 
     </DockPanel>
 </Window>

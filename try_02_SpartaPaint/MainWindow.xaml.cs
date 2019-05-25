@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace try_02_SpartaPaint
 {
@@ -31,18 +32,17 @@ namespace try_02_SpartaPaint
             InitializeComponent();
 
             // Custom initialization
-            LoadBitmap("smiley.bmp");
             _pixelSize = 1;
             DrawBitmap();
         }
 
         /// <summary>
-        /// Loads bitmap from file
+        /// Load bitmap from file
         /// </summary>
         /// <param name="filePath">Path of the bitmap file</param>
         public void LoadBitmap(string filePath)
         {
-            if (!File.Exists("smiley.bmp"))
+            if (!File.Exists(filePath))
             {
                 throw new Exception("File not found");
             }
@@ -55,8 +55,8 @@ namespace try_02_SpartaPaint
             using (BinaryReader reader = new BinaryReader(File.Open(filePath, FileMode.Open)))
             {
                 // Read the bitmap file header
-                bf.bfType1 = reader.ReadChar();
-                bf.bfType2 = reader.ReadChar();
+                bf.bfType1 = reader.ReadByte();
+                bf.bfType2 = reader.ReadByte();
                 bf.bfSize = reader.ReadUInt32();
                 bf.bfReserved1 = reader.ReadUInt16();
                 bf.bfReserved2 = reader.ReadUInt16();
@@ -75,9 +75,6 @@ namespace try_02_SpartaPaint
                 bi.biClrUsed = reader.ReadUInt32();
                 bi.biClrImportant = reader.ReadUInt32();
 
-                // Set up the size of the pixelmap
-                pixelmap = new RGBTriple[bi.biWidth * Math.Abs(bi.biHeight)];
-
                 // Check whether filetype is supported
                 if (bf.bfType1 != 'B' || bf.bfType2 != 'M' || bf.bfOffBits != 54 ||
                     bi.biSize != 40 || bi.biBitCount != 24 || bi.biCompression != 0 ||
@@ -85,6 +82,9 @@ namespace try_02_SpartaPaint
                 {
                     throw new Exception("Unsupported file format");
                 }
+
+                // Set up the size of the pixelmap
+                pixelmap = new RGBTriple[bi.biWidth * Math.Abs(bi.biHeight)];
 
                 // Calculate padding
                 padding = (4 - (bi.biWidth * RGBTriple.Size) % 4) % 4;
@@ -120,16 +120,25 @@ namespace try_02_SpartaPaint
         }
 
         /// <summary>
-        /// Draws the bitmap to the canvas
+        /// Draw the bitmap to the canvas
         /// </summary>
         public void DrawBitmap()
         {
+            // Clear the canvas
+            ImageCanvas.Children.Clear();
+
+            // Don't draw if there's not bitmap to draw
+            if (_bitmap == null) return;
+
+            // Create variables for easy access
             var pixelmap = _bitmap.pixelmap;
             var width = _bitmap.bi.biWidth;
+            var height = _bitmap.bi.biHeight;
 
             // Go through the entire pixelmap
             for (int i = 0; i < pixelmap.Length; i++)
             {
+                // Convert the RGB triple to a hexadecimal string
                 string hexColor = "#" + BitConverter.ToString(
                     new byte[]
                     {
@@ -138,9 +147,11 @@ namespace try_02_SpartaPaint
                         _bitmap.pixelmap[i].rgbtBlue
                     }).Replace("-", string.Empty);
 
+                // Set the filcolor to the hexadecimal color
                 Color color = (Color)ColorConverter.ConvertFromString(hexColor);
                 SolidColorBrush colorBrush = new SolidColorBrush(color);
 
+                // Create the current pixel
                 var currentPixel = new Rectangle
                 {
                     Fill = colorBrush,
@@ -148,9 +159,21 @@ namespace try_02_SpartaPaint
                     Width = _pixelSize
                 };
 
+                // Add the pixel to the canvas
                 ImageCanvas.Children.Add(currentPixel);
+
+                // For a bitmap with a positive height, scanlines are
+                // stored bottom to top. For a negative height this is
+                // the other way around.
+                // Taking this into account, calculate the correct
+                // position for the bitmap.
+                int calculateTop = (height < 0) ?
+                    ((i / width) * _pixelSize) :
+                    ((height - i / width) * _pixelSize);
+
+                // Place the pixel on the canvas
                 Canvas.SetLeft(currentPixel, (i % width) * _pixelSize);
-                Canvas.SetTop(currentPixel, (i / width) * _pixelSize);
+                Canvas.SetTop(currentPixel, calculateTop);
             }
         }
 
@@ -178,8 +201,17 @@ namespace try_02_SpartaPaint
             if (_pixelSize > 64) _pixelSize = 64;
 
             // Redraw the canvas
-            ImageCanvas.Children.Clear();
             DrawBitmap();
+        }
+
+        private void btnOpenFiles_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                LoadBitmap(openFileDialog.FileName);
+                DrawBitmap();
+            }
         }
     }
 }

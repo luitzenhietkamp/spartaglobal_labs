@@ -6,8 +6,8 @@ namespace try_02_SpartaPaint
     // https://msdn.microsoft.com/en-us/library/dd183374(v=vs.85).aspx
     public class BitmapFileHeader
     {
-        public char bfType1;
-        public char bfType2;
+        public Byte bfType1;
+        public Byte bfType2;
         public UInt32 bfSize;
         public UInt16 bfReserved1;
         public UInt16 bfReserved2;
