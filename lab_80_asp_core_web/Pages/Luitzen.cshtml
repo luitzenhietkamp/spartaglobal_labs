@@ -1,0 +1,200 @@
+﻿@page
+@model lab_80_asp_core_web.Pages.LuitzenModel
+@*
+    COMMENT
+*@
+
+@{
+    // code
+    // two ways of storing trivial strings : viewdata and viewbag
+    ViewData["Value"] = "Here is some data";
+    ViewBag.Value2 = "And some more data here - ViewBag";
+}
+
+<p>
+    <i>
+        <b>
+            <u>
+
+                We don't really use Bold Italic Underline any more
+
+            </u>
+        </b>
+    </i>
+</p>
+
+<p style="font-weight:bold">@ViewData["Value"]</p>
+
+<p style="font-style:italic">@ViewBag.Value2</p>
+
+<p>We can also use 'em' for emphasis italic <span><em>@ViewBag.Value</em></span></p>
+<p>We can also use 'strong' for emphasis bold <span><strong>@ViewBag.Value</strong></span></p>
+
+<p>'p' always starts a new line BLOCK ELEMENT <p>@ViewBag.Value</p></p>
+<p>So does H1 Header <h1>@ViewBag.Value</h1></p>
+<p>So does DIV I think!!!! <div>@ViewBag.Value</div></p>
+
+<p>Finally to underline we use <span style="text-decoration:underline">text-decoration:underline</span></p>
+
+<h1>This is my amazing test web page</h1>
+
+<p>Some text</p>
+
+<h1>Using Razor</h1>
+
+<h2>The 'at' symbol can be used to write C# code raw on top of HTML</h2>
+
+<h3>@DateTime.Now</h3>
+
+@{
+    var d = DateTime.Now;
+    d = d.AddDays(2);
+}
+
+<h4>The date in 2 days time is @d.ToShortDateString()</h4>
+
+<ul>
+    <li>first</li>
+    <li>second</li>
+    <li>third</li>
+</ul>
+
+<ol>
+    <li>first</li>
+    <li>second</li>
+    <li>third</li>
+</ol>
+
+<ul>
+    @for (int i = 1; i <= 10; ++i)
+    {
+        // Notice that inside C# block we can intelligently use HTML as well.
+        <li>Your item has number @i</li>
+    }
+</ul>
+
+<h2>This is also Bootstrap</h2>
+
+<button class="btn btn-success">Click Here</button>
+<button class="btn btn-danger">Click Here</button>
+<button class="btn btn-default">Click Here</button>
+<button class="btn btn-info">Click Here</button>
+<button class="btn btn-primary">Click Here</button>
+
+<h2>HTML table looks a bit 'rubbish'!</h2>
+
+<style type="text/css">
+    .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+        .tg td {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: black;
+        }
+
+        .tg th {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: black;
+        }
+
+        .tg .tg-7jts {
+            font-size: 18px;
+            border-color: inherit;
+            text-align: center;
+            vertical-align: top
+        }
+</style>
+<table class="tg">
+    <tr>
+        <th class="tg-7jts">some</th>
+        <th class="tg-7jts">text</th>
+        <th class="tg-7jts">here</th>
+        <th class="tg-7jts">in</th>
+        <th class="tg-7jts">this</th>
+        <th class="tg-7jts">table</th>
+    </tr>
+    <tr>
+        <td class="tg-7jts">also</td>
+        <td class="tg-7jts">here</td>
+        <td class="tg-7jts">.</td>
+        <td class="tg-7jts">.</td>
+        <td class="tg-7jts">.</td>
+        <td class="tg-7jts">.</td>
+    </tr>
+    <tr>
+        <td class="tg-7jts"></td>
+        <td class="tg-7jts"></td>
+        <td class="tg-7jts"></td>
+        <td class="tg-7jts"></td>
+        <td class="tg-7jts"></td>
+        <td class="tg-7jts"></td>
+    </tr>
+    <tr>
+        <td class="tg-7jts"></td>
+        <td class="tg-7jts"></td>
+        <td class="tg-7jts"></td>
+        <td class="tg-7jts"></td>
+        <td class="tg-7jts"></td>
+        <td class="tg-7jts"></td>
+    </tr>
+    <tr>
+        <td class="tg-7jts"></td>
+        <td class="tg-7jts"></td>
+        <td class="tg-7jts"></td>
+        <td class="tg-7jts"></td>
+        <td class="tg-7jts"></td>
+        <td class="tg-7jts"></td>
+    </tr>
+    <tr>
+        <td class="tg-7jts">on</td>
+        <td class="tg-7jts">the</td>
+        <td class="tg-7jts">bottom</td>
+        <td class="tg-7jts">row</td>
+        <td class="tg-7jts">some</td>
+        <td class="tg-7jts">data</td>
+    </tr>
+</table>
+
+<h2>Bootstrap Table</h2>
+
+<table class="table table-hover table-bordered table-striped">
+    <tr>
+        <th>header</th>
+        <th>goes</th>
+        <th>here</th>
+        <th>in</th>
+        <th>this</th>
+        <th>table</th>
+    </tr>
+    <tr>
+        <td>also</td>
+        <td>here</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+    </tr>
+    <tr>
+        <td>on</td>
+        <td>the</td>
+        <td>bottom</td>
+        <td>row</td>
+        <td>some</td>
+        <td>data</td>
+    </tr>
+</table>

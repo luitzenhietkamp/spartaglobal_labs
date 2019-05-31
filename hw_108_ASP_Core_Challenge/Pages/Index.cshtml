@@ -1,0 +1,109 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Profile page</h1>
+
+<p>Welcome to our super duper fancy website where you can login and view your profile</p>
+
+<style>
+    body{
+        background-color: aliceblue;
+    }
+
+    .flexbox {
+        display: flex;
+        width: 100%;
+        background-color: aliceblue;
+        justify-content: center;
+    }
+
+    .flexbox_item_login {
+        background-color: lightblue;
+        font-size: 1.375em;
+        padding: 15px 10px;
+        margin: 10vw;
+        width: 40%;
+        text-align: left;
+        border-radius: 10px;
+    }
+
+    .flexbox_item_profile {
+        background-color: lightblue;
+        font-size: 0.875em;
+        padding: 15px 10px;
+        margin: 10vw;
+        width: 80%;
+        text-align: left;
+        border-radius: 10px;
+    }
+
+    img {
+            width: 80%;
+            height: 60%;
+            object-fit: scale-down;
+    }
+
+    .profile_picture {
+        text-align: left;
+        width : 30%;
+        float: left;
+    }
+
+    .profile_table {
+        width: 30%;
+        float: left;
+    }
+</style>
+
+<div class="flexbox">
+    <div class="flexbox_item_login">
+        <form action="LogIn" method="post">
+            <div class="form-group">
+                <label for="exampleInputUsername">Username</label>
+                <input type="text" class="form-control" name="Username" placeholder="Enter your username">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" name="Password" placeholder="Enter your password">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div class="flexbox">
+    <div class="flexbox_item_profile">
+        <h1>LuitzenHietkamps's profile page</h1>
+        <div class="profile_picture">
+            <img alt="LuitzenHietkamp's profile picture" src="~/images/monkey.jpg" />
+        </div>
+        <div class="profile_table">
+            <table class="table">
+                <tr>
+                    <td>Username:</td>
+                    <td>LuitzenHietkamp</td>
+                </tr>
+                <tr>
+                    <td>E-mail:</td>
+                    <td>LuitzenHietkamp@SpartaGlobal.com</td>
+                </tr>
+                <tr>
+                    <td>First name:</td>
+                    <td>Luitzen</td>
+                </tr>
+                <tr>
+                    <td>Last name:</td>
+                    <td>Hietkamp</td>
+                </tr>
+                <tr>
+                    <td>Profile description:</td>
+                    <td>Please don't look at my profile.</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

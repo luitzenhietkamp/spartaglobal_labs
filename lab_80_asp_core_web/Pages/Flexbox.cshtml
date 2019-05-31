@@ -1,0 +1,30 @@
+﻿@page
+@model lab_80_asp_core_web.Pages.FlexboxModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<style>
+    .flexbox{
+        display: flex;
+        width: 80vw;
+        background-color:darkred;
+        justify-content:center;
+    }
+    .flexbox_item{
+        background-color: lightsalmon;
+        font-size: 1.375em;
+        padding: 15px 10px;
+        margin:10px;
+        width: 200px;
+        height: 200px;
+        text-align: center;
+    }
+</style>
+
+<div class="flexbox">
+    <div class="flexbox_item">Here are a couple of boxes inside a flexbox.</div>
+    <div class="flexbox_item">The first item in the flexbox is just a useless comment without anythin' particularly interesting.</div>
+    <div class="flexbox_item">Or is that item 2? Anyway, this item is actually very interesting.</div>
+    <div class="flexbox_item">Just Kidding!</div>
+</div>

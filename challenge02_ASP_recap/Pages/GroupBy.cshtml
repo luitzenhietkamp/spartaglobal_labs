@@ -1,0 +1,36 @@
+﻿@page
+@model challenge02_ASP_recap.Pages.GroupByModel
+@{
+    ViewData["Title"] = "GroupBy";
+}
+
+<h1>ToDoApp</h1>
+
+<h2>Tasks grouped by Category ID</h2>
+<p>Welcome to the web edition of the ToDo app. Here are all the tasks grouped by Category ID.</p>
+
+<table class="table table-hover table-bordered table-striped">
+    <tr>
+        <th>Category ID</th>
+        <th>Number of Tasks</th>
+    </tr>
+    @foreach (var stat in Model.TaskStats)
+    {
+    <tr>
+        <td>
+            @{
+                if (stat.CategoryID != null)
+                {
+                    @stat.CategoryID
+                }
+                else
+                {
+                    string nullString = "null";
+                    @nullString;
+                }
+            }
+        </td>
+        <td>@stat.Count</td>
+    </tr>
+    }
+</table>

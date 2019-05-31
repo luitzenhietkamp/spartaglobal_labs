@@ -17,34 +17,18 @@ namespace _01_hello_world
                 i += 1;
                 Console.WriteLine(i);
 
-            }
+                string test = "hello";
+                string output = "";
 
-            {
-                Console.WriteLine(i++);
-
-                // is the same as
-                
-                Console.WriteLine(i);
-                i += 1;
-            }
-
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine(i);
-            }
-
-
-            {
-                int i = 0;
-
-                while (i < 10)
+                for (int j = test.Length - 1; j >= 0; --j)
                 {
-                    Console.WriteLine(i);
-                    ++i;
+                    output += test[j];
                 }
-            }
+                string temp = test.Substring(4, -5);
 
-            Console.WriteLine(i);
+                Console.WriteLine(test);
+
+            }
 
             return;
 

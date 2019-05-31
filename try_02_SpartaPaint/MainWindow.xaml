@@ -9,13 +9,14 @@
         MouseWheel="ZoomHandler"
         Closing="ApplicationClosing">
     <Window.CommandBindings>
-        <CommandBinding Command="Open" CanExecute="OpenCommand_CanExecute" Executed="OpenCommand_Executed" />
+        <CommandBinding Command="ApplicationCommands.Open" CanExecute="OpenCommand_CanExecute" Executed="OpenCommand_Executed" />
         <CommandBinding Command="Close"  CanExecute="CloseCommand_CanExecute" Executed="CloseCommand_Executed" />
+
     </Window.CommandBindings>
     <DockPanel x:Name="root">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
-                <MenuItem Command="Open" />
+                <MenuItem Command="ApplicationCommands.Open" />
                 <Separator />
                 <MenuItem Header="E_xit" Click="CloseApp" />
             </MenuItem>
@@ -24,6 +25,5 @@
 
         </WrapPanel>
         <Canvas x:Name="ImageCanvas" Background="#FFE5E5E5" />
-
     </DockPanel>
 </Window>

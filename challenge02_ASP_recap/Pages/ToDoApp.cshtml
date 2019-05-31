@@ -1,0 +1,57 @@
+﻿@page
+@model challenge02_ASP_recap.Pages.ToDoAppModel
+@{
+    ViewData["Title"] = "ToDoApp";
+}
+
+<h1>ToDoApp</h1>
+
+<h2>Welcome to the web edition of the ToDo app. To start please select a user.</h2>
+
+<div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Select User
+    </button>
+    <div class="dropdown-menu">
+        @foreach (var user in Model.Users)
+        {
+            <a class="dropdown-item" href="#">@user.Username</a>
+        }
+    </div>
+</div>
+
+<table class="table table-hover table-bordered table-striped">
+    <tr>
+        <th>Task description</th>
+        <th>Done?</th>
+        <th>Date started</th>
+        <th>Date completed</th>
+        <th>User</th>
+        <th>Category</th>
+    </tr>
+    @foreach(var task in Model.Tasks)
+    {
+        <tr>
+            <td>@task.TaskDescription</td>
+            <td>@task.Done</td>
+            <td>@task.DateStarted</td>
+            <td>@task.DateCompleted</td>
+            <td>@task.User.Username</td>
+            <td>@{
+                if (task.CategoryID != null)
+                {
+                    @task.Category.CategoryName
+                }
+                else
+                {
+                    string nullString = "null";
+                    @nullString;
+                }
+            }</td>
+        </tr>
+    }
+</table>
+
+<script>
+
+</script>

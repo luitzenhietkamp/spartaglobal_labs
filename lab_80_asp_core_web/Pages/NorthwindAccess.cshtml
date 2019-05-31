@@ -1,0 +1,21 @@
+﻿@page
+@model lab_80_asp_core_web.Pages.NorthwindAccessModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<h3>Customers and their contacts</h3>
+
+<table class="table table-bordered table-hover table-striped">
+    <tr>
+        <th>Company Name</th>
+        <th>Contact Name</th>
+    </tr>
+    @foreach(var item in Model.customers)
+    {
+        <tr>
+            <td>@item.CompanyName</td>
+            <td>@item.ContactName</td>
+        </tr>
+    }
+</table>

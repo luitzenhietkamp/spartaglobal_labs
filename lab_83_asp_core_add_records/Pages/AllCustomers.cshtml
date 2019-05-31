@@ -1,0 +1,43 @@
+﻿@page
+@model lab_83_asp_core_add_records.Pages.AllCustomersModel
+@{
+    ViewData["Title"] = "AllCustomers";
+}
+<style>
+    #pageNumberForm {
+        width: 25px;
+        text-align: center;
+        height: 20px;
+    }
+</style>
+
+
+<h2>AllCustomers</h2>
+
+<table class="table table-bordered table-striped table-hover">
+    <tr>
+        <th>Customer ID</th>
+        <th>Company Name</th>
+        <th>Contact Name</th>
+    </tr>
+    @foreach (var customer in Model.customers)
+    {
+        <tr>
+            <td>@customer.CustomerID</td>
+            <td>@customer.CompanyName</td>
+            <td>@customer.CompanyName</td>
+        </tr>
+    }
+</table>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="?page=1">|<</a></li>
+        <li class="page-item"><a class="page-link" href="?page=@(Model.current - 5)">&laquo;</a></li>
+        <li class="page-item"><a class="page-link" href="?page=@(Model.current - 1)">&lsaquo;</a></li>
+        <li class="page-item"><a class="page-link"><input id="pageNumberForm" onchange="adjustPage()" columns="2" value="@Model.current"> / @(Model.maxPage)</a></li>
+        <li class="page-item"><a class="page-link" href="?page=@(Model.current + 1)">&rsaquo;</a></li>
+        <li class="page-item"><a class="page-link" href="?page=@(Model.current + 5)">&raquo;</a></li>
+        <li class="page-item"><a class="page-link" href="?page=@(Model.maxPage)">>|</a></li>
+    </ul>
+</nav>

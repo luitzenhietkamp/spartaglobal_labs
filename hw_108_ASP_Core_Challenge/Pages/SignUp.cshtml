@@ -1,0 +1,20 @@
+﻿@page
+@model hw_108_ASP_Core_Challenge.Pages.SignUpModel
+@{
+    ViewData["Title"] = "SignUp";
+}
+
+<h2>SignUp</h2>
+
+<form action="SignUp" method="get">
+    <div class="form-group">
+        <label for="exampleInputUsername">Username</label>
+        <input type="text" class="form-control" name="Username" placeholder="Choose a username">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" name="Password" placeholder="Choose your password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

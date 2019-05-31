@@ -1,0 +1,48 @@
+﻿@page
+@model challenge02_ASP_recap.Pages.OrderByModel
+@{
+    ViewData["Title"] = "OrderBy";
+}
+
+<h1>ToDoApp</h1>
+
+<h2>Tasks ordered by description</h2>
+<p>Welcome to the web edition of the ToDo app. Here are all the tasks in the db ordered by their description.</p>
+
+<table class="table table-hover table-bordered table-striped">
+    <tr>
+        <th>Task description</th>
+        <th>Done?</th>
+        <th>Date started</th>
+        <th>Date completed</th>
+        <th>User</th>
+        <th>Category</th>
+    </tr>
+    @foreach (var task in Model.Tasks)
+    {
+        <tr>
+            <td>@task.TaskDescription</td>
+            <td>@task.Done</td>
+            <td>@task.DateStarted</td>
+            <td>@task.DateCompleted</td>
+            <td>@task.User.Username</td>
+            <td>
+                @{
+                    if (task.CategoryID != null)
+                    {
+                        @task.Category.CategoryName
+                    }
+                    else
+                    {
+                        string nullString = "null";
+                        @nullString;
+                    }
+            }
+        </td>
+    </tr>
+}
+</table>
+
+<script>
+
+</script>

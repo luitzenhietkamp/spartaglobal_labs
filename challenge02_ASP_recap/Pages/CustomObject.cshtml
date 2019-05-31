@@ -1,0 +1,37 @@
+﻿@page
+@model challenge02_ASP_recap.Pages.CustomObjectModel
+@{
+    ViewData["Title"] = "CustomObject";
+}
+
+<h1>ToDoApp</h1>
+
+<h2>Tasks ordered by description</h2>
+<p>Welcome to the web edition of the ToDo app. Here are all the tasks organized in a simple custom object.</p>
+
+<table class="table table-hover table-bordered table-striped">
+    <tr>
+        <th>Task description</th>
+        <th>CategoryID</th>
+    </tr>
+    @foreach (var task in Model.Tasks)
+    {
+        <tr>
+            <td>@task.TaskDescription</td>
+            <td>
+                @{
+                    if (task.CategoryID != null)
+                    {
+                        @task.CategoryID
+                    }
+                    else
+                    {
+                        string nullString = "null";
+                        @nullString;
+                    }
+                }
+            </td>
+        </tr>
+    }
+</table>
+
