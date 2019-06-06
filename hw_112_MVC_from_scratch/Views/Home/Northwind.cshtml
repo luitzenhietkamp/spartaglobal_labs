@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Northwind";
+}
+<h2>@ViewData["Title"]</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Customer ID</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Contact Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in ViewBag.customers)
+        {
+            <tr>
+                <td>@customer.CustomerID</td>
+                <td>@customer.CompanyName</td>
+                <td>@customer.ContactName</td>
+            </tr>
+        }
+    </tbody>
+</table>

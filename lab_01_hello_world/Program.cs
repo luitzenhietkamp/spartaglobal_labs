@@ -8,30 +8,6 @@ namespace _01_hello_world
         {
             Console.WriteLine("Hello, world!");
 
-            int i = 10;
-
-            {
-                Console.WriteLine(++i);
-
-                // is the same as
-                i += 1;
-                Console.WriteLine(i);
-
-                string test = "hello";
-                string output = "";
-
-                for (int j = test.Length - 1; j >= 0; --j)
-                {
-                    output += test[j];
-                }
-                string temp = test.Substring(4, -5);
-
-                Console.WriteLine(test);
-
-            }
-
-            return;
-
             if (args.Length == 0)
             {
                 Console.WriteLine("There are no arguments");
@@ -39,11 +15,23 @@ namespace _01_hello_world
             else
             {
                 Console.WriteLine("Printing out arguments array");
-                foreach (var word in args)
+                foreach (var ޠஇቜðʣ in args)
                 {
-                    Console.WriteLine("Your item is - " + word.ToUpper());
+                    Console.WriteLine("Your item is - " + ޠஇቜðʣ.ToUpper());
                 }
             }
+        }
+
+        static string ReverseString(string s)
+        {
+            string ret = "";
+
+            for(int i = s.Length -1; i >= 0; --i)
+            {
+                ret += s[i];
+            }
+
+            return ret;
         }
     }
 }

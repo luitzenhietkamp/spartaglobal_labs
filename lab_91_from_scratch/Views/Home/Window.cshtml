@@ -1,0 +1,18 @@
+﻿@model lab_91_from_scratch.Models.WindowView;
+@{
+    ViewData["Title"] = "Window";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @ViewBag.Message
+ <br />
+    @ViewBag.window.ToString
+</p>
+
+<p>
+    @ViewBag.Message
+
+    @Model.ToString
+</p>

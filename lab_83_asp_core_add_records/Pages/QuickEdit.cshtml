@@ -1,0 +1,26 @@
+﻿@page
+@model hw_108_ASP_Core_Challenge.Pages.QuickEditModel
+@{
+    Layout = null;
+}
+
+<table id="customerTable" class="table table-bordered table-striped table-hover">
+    <tr>
+        <th>Customer ID</th>
+        <th>Company Name</th>
+        <th>Contact Name</th>
+        <th></th>
+    </tr>
+    @foreach (var customer in Model.customers)
+    {
+        <tr  @if (customer.CustomerID == Model.affectedCustomerID) { @Model.highlight; }>
+            <td>@customer.CustomerID</td>
+            <td>@customer.CompanyName</td>
+            <td>@customer.ContactName</td>
+            <td>
+                <button class="btn btn-link" onclick="editCustomer('@customer.CustomerID')">Edit customer</button> |
+                <button class="btn btn-link" onclick="deleteCustomer('@customer.CustomerID')">Delete customer</button>
+            </td>
+        </tr>
+    }
+</table>

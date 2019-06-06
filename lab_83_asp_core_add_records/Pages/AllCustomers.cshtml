@@ -14,21 +14,28 @@
 
 <h2>AllCustomers</h2>
 
-<table class="table table-bordered table-striped table-hover">
-    <tr>
-        <th>Customer ID</th>
-        <th>Company Name</th>
-        <th>Contact Name</th>
-    </tr>
-    @foreach (var customer in Model.customers)
-    {
+<div id="customers">
+    <table id="customerTable" class="table table-bordered table-striped table-hover">
         <tr>
-            <td>@customer.CustomerID</td>
-            <td>@customer.CompanyName</td>
-            <td>@customer.CompanyName</td>
+            <th>Customer ID</th>
+            <th>Company Name</th>
+            <th>Contact Name</th>
+            <th></th>
         </tr>
-    }
-</table>
+        @foreach (var customer in Model.customers)
+        {
+            <tr>
+                <td>@customer.CustomerID</td>
+                <td>@customer.CompanyName</td>
+                <td>@customer.ContactName</td>
+                <td>
+                    <button class="btn btn-link" onclick="editCustomer('@customer.CustomerID')">Edit customer</button> |
+                    <button class="btn btn-link" onclick="deleteCustomer('@customer.CustomerID')">Delete customer</button>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
 
 <nav aria-label="Page navigation example">
     <ul class="pagination">
